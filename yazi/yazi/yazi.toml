@@ -1,0 +1,73 @@
+# Yazi Configuration File
+# Documentation: https://yazi-rs.github.io/docs/configuration/yazi
+
+[mgr]
+# Layout ratio for parent/current/preview panels
+ratio = [1, 4, 3]
+
+# File sorting options
+sort_by = "alphabetical"  # Options: "none", "mtime", "btime", "extension", "alphabetical", "natural", "size", "random"
+sort_sensitive = false     # Case-sensitive sorting
+sort_reverse = false       # Reverse sort order
+sort_dir_first = true      # Show directories first
+sort_translit = false      # Transliterate characters for sorting
+
+# Display options
+linemode = "size"          # Options: "none", "size", "mtime", "btime", "permissions", "owner"
+show_hidden = false        # Show hidden files
+show_symlink = true        # Show symlink targets
+scrolloff = 5              # Number of lines to keep visible when scrolling
+
+# Mouse support
+mouse_events = ["click", "scroll"]  # Options: "click", "scroll", "touch", "move", "drag"
+
+# Terminal title format
+title_format = "Yazi: {cwd}"
+
+[preview]
+# Text preview settings
+wrap = "no"                # Word wrap in text preview
+tab_size = 2               # Spaces per tab character
+
+# Image preview settings
+max_width = 600            # Maximum image width
+max_height = 900           # Maximum image height
+cache_dir = ""             # Empty uses default cache directory
+image_delay = 30           # Milliseconds before sending preview data
+image_filter = "triangle"  # Options: "nearest", "triangle", "catmull-rom", "lanczos3"
+image_quality = 75         # Pre-cache quality (50-90)
+
+[opener]
+# File opener configurations will use system defaults unless specified here
+# Example:
+# edit = [
+#   { run = 'nvim "$@"', block = true, for = "unix" },
+# ]
+
+[tasks]
+# Background task settings
+micro_workers = 10         # Concurrent micro-task limit
+macro_workers = 25         # Concurrent macro-task limit
+bizarre_retry = 5          # Retry attempts for unusual failures
+image_alloc = 536870912    # Memory limit for single image (512MB)
+image_bound = [0, 0]       # Maximum pixel dimensions (0 = no limit)
+
+[input]
+# Input dialog positioning
+# origin = { x = 50, y = 50 }
+# offset = { x = 0, y = 0, width = 40, height = 3 }
+
+[confirm]
+# Confirmation dialog positioning
+# origin = { x = 50, y = 50 }
+# offset = { x = 0, y = 0, width = 40, height = 3 }
+
+[pick]
+# Pick dialog positioning
+# origin = { x = 50, y = 50 }
+# offset = { x = 0, y = 0, width = 40, height = 10 }
+
+[which]
+# Which-key dialog positioning
+# origin = { x = 50, y = 50 }
+# offset = { x = 0, y = 0, width = 40, height = 10 }

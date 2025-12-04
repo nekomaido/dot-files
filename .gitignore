@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Zsh
+.zcompdump*
+.zsh_history
+.zsh_sessions/
+
+# Runtime/Cache files
+*.log
+.cache/
+
+# Sensitive
+.ssh/
+*.pem
+*.key
+
+# Backup files
+*.backup
+*.bak
+
+# Serena MCP data (runtime)
+.serena/
+
+# Package manager cache
+.npm/_cacache/
+.cargo/registry/
+.rustup/
+
+# Application state/sessions
+.viminfo
+.claude.json
+.claude.json.backup
+
+# Tmux resurrect/continuum data files
+tmux/resurrect/
+**/tmux-resurrect/resurrect/
+**/tmux-continuum/scripts/*.txt
