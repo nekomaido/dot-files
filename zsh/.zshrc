@@ -1,6 +1,10 @@
 # Fix TMPDIR for macOS 15.7.1+ (lazygit and other tools need this)
 export TMPDIR=$(getconf DARWIN_USER_TEMP_DIR)
 
+# UTF-8 Locale (required for Nerd Font symbols in tmux)
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # PATH
 export PATH="$PATH:/Users/nekomaido/.local/bin"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
@@ -8,6 +12,7 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 # Starship prompt
 eval "$(starship init zsh)"
 
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # fzf - fuzzy finder
