@@ -8,12 +8,6 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 # Starship prompt
 eval "$(starship init zsh)"
 
-# Plugins (Homebrew)
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Catppuccin theme for zsh-syntax-highlighting
-source ~/.config/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
-
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # fzf - fuzzy finder
