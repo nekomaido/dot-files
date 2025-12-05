@@ -5,6 +5,9 @@ export TMPDIR=$(getconf DARWIN_USER_TEMP_DIR)
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Default editor
+export EDITOR=nvim
+
 # PATH
 export PATH="$PATH:/Users/nekomaido/.local/bin"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
@@ -21,9 +24,26 @@ source <(fzf --zsh)
 # Zoxide initialization (smart cd replacement)
 eval "$(zoxide init zsh)"
 
-# Save zoxide's z command and swap with cd
+# alias
+alias cls='clear'
 alias cd='__zoxide_z'
 alias zz='builtin cd'
+
+# Fuzzy file opener (like zoxide but for files)
+# o  = open file in current directory
+# oo = jump to directory (zoxide) then open file
+function o() {
+  local file
+  file=$(fd --type f --hidden --exclude .git | fzf --preview 'bat --color=always --line-range :100 {}')
+  [[ -n "$file" ]] && ${EDITOR:-vim} "$file"
+}
+
+function oo() {
+  local dir file
+  dir=$(zoxide query -i "$@") || return
+  file=$(fd --type f --hidden --exclude .git . "$dir" | fzf --preview 'bat --color=always --line-range :100 {}')
+  [[ -n "$file" ]] && ${EDITOR:-vim} "$file"
+}
 
 # TheFuck - command correction
 eval $(thefuck --alias)

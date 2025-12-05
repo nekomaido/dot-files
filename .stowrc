@@ -1,8 +1,0 @@
---target=$HOME
---ignore='\.DS_Store'
---ignore='\.swp$'
---ignore='~$'
---ignore='\.git'
---ignore='\.gitignore'
---ignore='README\.md'
---dotfiles

@@ -12,7 +12,7 @@ return {
           "lua", "vim", "vimdoc",
           "javascript", "typescript", "tsx",
           "python", "json", "yaml", "html", "css",
-          "markdown", "bash",
+          "markdown", "markdown_inline", "bash",
         },
         auto_install = true,
         highlight = { enable = true },
