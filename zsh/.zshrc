@@ -21,13 +21,48 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # fzf - fuzzy finder
 source <(fzf --zsh)
 
+# fzf preview configuration (telescope-like)
+export FZF_DEFAULT_OPTS="
+  --height=80%
+  --layout=reverse
+  --border=rounded
+  --preview-window=right:60%:border-left
+  --bind='ctrl-/:toggle-preview'
+  --bind='ctrl-d:preview-page-down'
+  --bind='ctrl-u:preview-page-up'
+"
+
+# Ctrl+T: File search with preview
+export FZF_CTRL_T_OPTS="
+  --preview 'bat --color=always --style=numbers --line-range :500 {} 2>/dev/null || cat {}'
+"
+
+# Alt+C: Directory navigation with tree preview
+export FZF_ALT_C_OPTS="
+  --preview 'eza --tree --color=always --icons --level=2 {} 2>/dev/null || ls -la {}'
+"
+
+# Ctrl+R: History search (no file preview needed)
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}'
+  --preview-window=down:3:wrap
+"
+
 # Zoxide initialization (smart cd replacement)
 eval "$(zoxide init zsh)"
 
 # alias
 alias cls='clear'
+
 alias cd='__zoxide_z'
 alias zz='builtin cd'
+
+# eza aliases
+alias ls='eza --icons --group-directories-first'
+alias l='eza -l -a --icons --group-directories-first --git'
+alias ll='eza -la --icons --octal-permissions --group-directories-first --git'
+alias la='eza -lbhHigUmuSa --time-style=long-iso --git --color-scale --color=always --group-directories-first --icons'
+alias tree='eza --tree --level=2 --icons --group-directories-first'
 
 # Fuzzy file opener (like zoxide but for files)
 # o  = open file in current directory
