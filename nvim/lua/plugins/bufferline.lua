@@ -13,6 +13,7 @@ return {
     { "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffers to left" },
     { "<leader>bc", "<cmd>BufferLinePick<cr>", desc = "Pick buffer" },
     { "<leader>bx", "<cmd>BufferLinePickClose<cr>", desc = "Pick buffer to close" },
+    { "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete buffer" },
   },
   opts = {
     options = {
